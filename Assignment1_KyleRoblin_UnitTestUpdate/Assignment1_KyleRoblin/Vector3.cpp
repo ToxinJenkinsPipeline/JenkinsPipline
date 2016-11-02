@@ -28,8 +28,6 @@ bool Vector3::Compare(Vector3 vec1, Vector3 vec2)
 			}	
 		}
 	}
-
-	// this is a useless comment
 	return false;
 }
 
