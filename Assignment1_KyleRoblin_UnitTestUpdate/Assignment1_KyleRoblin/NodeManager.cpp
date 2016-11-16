@@ -65,6 +65,15 @@ void NodeManager::PrintNodeList() const
 		cout << "Node " << i + 1 << ": " << node[i].x << " | " << node[i].y << " | " << node[i].z << endl;
 	}
 }
+
+void NodeManager::PrintRawData() const
+{
+	for (int i = 0; i < MaxNodeList - AmountRemoved; i++)
+	{
+		cout << node[i].x << " " <<  node[i].y << " " << node[i].z << endl;
+	}
+
+}
 void NodeManager::WriteNodeList()
 {
 

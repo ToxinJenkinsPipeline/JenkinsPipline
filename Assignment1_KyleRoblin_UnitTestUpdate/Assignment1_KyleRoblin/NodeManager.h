@@ -9,16 +9,17 @@
 class NodeManager
 {
 	//std::ifstream inputFile;
-	std::vector<Vector3> node;
 	Vector3 vctr;
 	int AmountRemoved;
 public:
+	std::vector<Vector3> node;
 	
 	NodeManager();
 	~NodeManager();
 	void ReadNodeList();
 	void CompareNodeList();
 	void PrintNodeList() const;
+	void PrintRawData() const;
 	void WriteNodeList();
 };
 

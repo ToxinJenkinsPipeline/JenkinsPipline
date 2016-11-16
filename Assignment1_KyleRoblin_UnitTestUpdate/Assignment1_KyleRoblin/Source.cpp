@@ -3,12 +3,14 @@
 #include <cppunit/extensions/TestFactoryRegistry.h>
 #include <cppunit/ui/text/TestRunner.h>
 #include <cppunit/XmlOutputter.h>
+#include <zlib.h>
+
 
 
 int main(int argc, char *argv[])
 {
-
-	NodeManager nodeMngr;
+	NodeManager nodeMngr; 
+	
 
 	CPPUNIT_NS::Test *suite = CPPUNIT_NS::TestFactoryRegistry::getRegistry().makeTest();
 	CppUnit::TextUi::TestRunner runner;
@@ -19,15 +21,24 @@ int main(int argc, char *argv[])
 	runner.addTest(suite);
 	bool wasSusseccful = runner.run();
 
-
+	
 
 	nodeMngr.ReadNodeList();
 	std::cout << "List of nodes uncompared \n" << std::endl;
 	nodeMngr.PrintNodeList();
 	//nodeMngr.CompareNodeList(); //takes quite long to compare on school computers, but works correctly
 	std::cout << "\nList of nodes after comparison \n" << std::endl;
+	//nodeMngr.PrintNodeList();
+	nodeMngr.PrintRawData();
+	
 
-	nodeMngr.PrintNodeList();
+	z_stream defstream;
+	defstream.zalloc = Z_NULL;
+	defstream.zfree = Z_NULL;
+	defstream.opaque = Z_NULL;
 
+	//defstream.avail_in = (unsigned int)nodeMngr.node.size() + 1;
+	
+	
 	return 0;
 }
