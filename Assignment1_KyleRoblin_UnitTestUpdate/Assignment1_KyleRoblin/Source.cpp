@@ -3,7 +3,9 @@
 #include <cppunit/extensions/TestFactoryRegistry.h>
 #include <cppunit/ui/text/TestRunner.h>
 #include <cppunit/XmlOutputter.h>
-#include <zlib.h>
+#include "../zlib128-dll/include/zlib.h"
+
+#pragma comment (lib, "../zlib128-dll/lib/zdll.lib" )
 
 
 
@@ -31,13 +33,9 @@ int main(int argc, char *argv[])
 	//nodeMngr.PrintNodeList();
 	nodeMngr.PrintRawData();
 	
-
-	z_stream defstream;
-	defstream.zalloc = Z_NULL;
-	defstream.zfree = Z_NULL;
-	defstream.opaque = Z_NULL;
-
-	//defstream.avail_in = (unsigned int)nodeMngr.node.size() + 1;
+	nodeMngr.FillStringBuffer();
+	
+	
 	
 	
 	return 0;

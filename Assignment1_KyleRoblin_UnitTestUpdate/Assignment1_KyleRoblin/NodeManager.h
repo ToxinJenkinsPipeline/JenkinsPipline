@@ -8,11 +8,12 @@
 
 class NodeManager
 {
-	//std::ifstream inputFile;
+	
 	Vector3 vctr;
 	int AmountRemoved;
 public:
 	std::vector<Vector3> node;
+	std::vector<std::string> stringLineBuffer;
 	
 	NodeManager();
 	~NodeManager();
@@ -20,6 +21,6 @@ public:
 	void CompareNodeList();
 	void PrintNodeList() const;
 	void PrintRawData() const;
-	void WriteNodeList();
+	void FillStringBuffer();
 };
 

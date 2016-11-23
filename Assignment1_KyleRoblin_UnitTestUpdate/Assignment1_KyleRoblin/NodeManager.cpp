@@ -8,6 +8,7 @@ using namespace std;
 NodeManager::NodeManager()
 	:AmountRemoved(0)
 {
+	stringLineBuffer.resize(MaxNodeList);
 }
 NodeManager::~NodeManager()
 {
@@ -70,11 +71,19 @@ void NodeManager::PrintRawData() const
 {
 	for (int i = 0; i < MaxNodeList - AmountRemoved; i++)
 	{
-		cout << node[i].x << " " <<  node[i].y << " " << node[i].z << endl;
+		cout << node[i].x << " " << node[i].y << " " << node[i].z << endl;
 	}
 
 }
-void NodeManager::WriteNodeList()
-{
 
+void NodeManager::FillStringBuffer()
+{
+	string space = " ";
+	for (int i = 0; i < MaxNodeList; i++)
+	{
+		stringstream strStrm;
+		//TODO 
+		//make float to string
+		
+	}
 }
