@@ -2,6 +2,7 @@
 #include <string>
 #include <sstream>
 #include <stdlib.h>
+#include <zlib.h>
 
 using namespace std;
 
@@ -76,14 +77,21 @@ void NodeManager::PrintRawData() const
 
 }
 
+//used hamelet.io to learn how to use zlib gzfile stuff
 void NodeManager::FillStringBuffer()
 {
+	gzFile myGzFile;
+	myGzFile = gzopen("ZLibResult.xml", "wb");
+	z_stream zStrm;
 	string space = " ";
 	for (int i = 0; i < MaxNodeList; i++)
 	{
-		stringstream strStrm;
-		//TODO 
-		//make float to string
-		
+		ostringstream strStrm;
+		strStrm << node[i].x + node[i].y + node[i].z;
+		unsigned long int fileSize = sizeof(char) * strStrm.str().size();
+		gzwrite(myGzFile, (void*)&fileSize, sizeof(fileSize));
+		gzwrite(myGzFile, (void*)(strStrm.str().data()), fileSize);
+
 	}
+	gzclose(myGzFile);
 }
