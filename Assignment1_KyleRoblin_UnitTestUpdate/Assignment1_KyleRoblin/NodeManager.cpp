@@ -82,8 +82,6 @@ void NodeManager::FillStringBuffer()
 {
 	gzFile myGzFile;
 	myGzFile = gzopen("ZLibResult.xml", "wb");
-	z_stream zStrm;
-	string space = " ";
 	for (int i = 0; i < MaxNodeList; i++)
 	{
 		ostringstream strStrm;
