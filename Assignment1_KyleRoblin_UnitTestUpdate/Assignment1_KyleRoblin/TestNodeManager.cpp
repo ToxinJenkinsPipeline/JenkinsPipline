@@ -22,7 +22,7 @@ void TestNodeManager::TestConstructor()
 {
 	Vector3 vec(1, 2, 3);
 
-	CPPUNIT_ASSERT(vec.x == 1 && vec.y == 2 && vec.z == 3);
+	CPPUNIT_ASSERT(vec.x == 0 && vec.y == 2 && vec.z == 3);
 }
 
 void TestNodeManager::TestCompare()
